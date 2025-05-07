@@ -627,191 +627,206 @@
             margin-bottom: 1rem;
         }
         
+        .analysis-headline {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: white;
+            margin-bottom: 1rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            padding-bottom: 0.5rem;
+        }
+        
+        .analysis-content b {
+            color: white;
+            font-weight: 600;
+        }
+        
         /* Chat Interface */
         .chat-container {
-        display: none;
-        margin-top: 2rem;
-        background: rgba(18, 18, 24, 0.8);
-        border-radius: 12px;
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-        overflow: hidden;
-        border: 1px solid rgba(255, 255, 255, 0.05);
-        backdrop-filter: blur(5px);
-        height: 600px;
-        display: flex;
-        flex-direction: column;
-        transition: all 0.3s ease;
-    }
-
-    .chat-header {
-        background: var(--primary);
-        color: white;
-        padding: 1rem 1.5rem;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        flex-shrink: 0;
-    }
-
-    .chat-messages {
-        flex: 1;
-        overflow-y: auto;
-        padding: 1.5rem;
-        background: rgba(10, 10, 14, 0.5);
-        display: flex;
-        flex-direction: column;
-        gap: 1rem;
-        scroll-behavior: smooth;
-    }
-
-    /* Custom scrollbar for chat */
-    .chat-messages::-webkit-scrollbar {
-        width: 8px;
-    }
-
-    .chat-messages::-webkit-scrollbar-track {
-        background: rgba(255, 255, 255, 0.05);
-        border-radius: 4px;
-    }
-
-    .chat-messages::-webkit-scrollbar-thumb {
-        background: var(--primary);
-        border-radius: 4px;
-    }
-
-    .chat-messages::-webkit-scrollbar-thumb:hover {
-        background: var(--primary-dark);
-    }
-
-    .message {
-        max-width: 85%;
-        animation: fadeIn 0.3s ease;
-        padding: 0.75rem 1.25rem;
-        border-radius: 18px;
-        position: relative;
-        opacity: 0;
-        transform: translateY(10px);
-        animation: messageIn 0.3s forwards;
-    }
-
-    @keyframes messageIn {
-        to {
-            opacity: 1;
-            transform: translateY(0);
+            display: none;
+            margin-top: 2rem;
+            background: rgba(18, 18, 24, 0.8);
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(5px);
+            height: 600px;
+            display: flex;
+            flex-direction: column;
+            transition: all 0.3s ease;
         }
-    }
-
-    .user-message {
-        align-self: flex-end;
-        background: var(--primary);
-        color: white;
-        border-radius: 18px 18px 4px 18px;
-        margin-left: 15%;
-    }
-
-    .bot-message {
-        align-self: flex-start;
-        background: rgba(18, 18, 24, 0.8);
-        color: var(--light);
-        border-radius: 18px 18px 18px 4px;
-        border: 1px solid rgba(255, 255, 255, 0.05);
-        margin-right: 15%;
-    }
-
-    .message-content {
-        word-wrap: break-word;
-        overflow-wrap: break-word;
-        white-space: pre-wrap;
-    }
-
-    .message-time {
-        font-size: 0.7rem;
-        opacity: 0.7;
-        margin-top: 0.5rem;
-        text-align: right;
-    }
-
-    .typing-indicator {
-        display: flex;
-        align-items: center;
-        gap: 0.5rem;
-        padding: 0.75rem 1.25rem;
-        background: rgba(18, 18, 24, 0.8);
-        border-radius: 18px;
-        border: 1px solid rgba(255, 255, 255, 0.05);
-        align-self: flex-start;
-        margin-right: 15%;
-    }
-
-    .typing-dot {
-        width: 8px;
-        height: 8px;
-        background-color: var(--light-gray);
-        border-radius: 50%;
-        display: inline-block;
-        animation: typingAnimation 1.4s infinite ease-in-out;
-    }
-
-    .typing-dot:nth-child(1) {
-        animation-delay: 0s;
-    }
-
-    .typing-dot:nth-child(2) {
-        animation-delay: 0.2s;
-    }
-
-    .typing-dot:nth-child(3) {
-        animation-delay: 0.4s;
-    }
-
-    @keyframes typingAnimation {
-        0%, 60%, 100% {
-            transform: translateY(0);
-            opacity: 0.6;
+        
+        .chat-header {
+            background: var(--primary);
+            color: white;
+            padding: 1rem 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-shrink: 0;
         }
-        30% {
-            transform: translateY(-5px);
-            opacity: 1;
+        
+        .chat-messages {
+            flex: 1;
+            overflow-y: auto;
+            padding: 1.5rem;
+            background: rgba(10, 10, 14, 0.5);
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            scroll-behavior: smooth;
         }
-    }
-
-    .chat-input-container {
-        display: flex;
-        padding: 1rem;
-        border-top: 1px solid var(--dark-gray);
-        background: rgba(18, 18, 24, 0.8);
-        gap: 0.5rem;
-        flex-shrink: 0;
-    }
-
-    #chatInput {
-        flex: 1;
-        padding: 0.75rem 1rem;
-        background: rgba(10, 10, 14, 0.8);
-        border: 2px solid var(--dark-gray);
-        border-radius: 8px;
-        font-size: 1rem;
-        color: white;
-        resize: none;
-        min-height: 50px;
-        max-height: 150px;
-        overflow-y: auto;
-        transition: all 0.3s ease;
-    }
-
-    #chatInput:focus {
-        outline: none;
-        border-color: var(--primary);
-        box-shadow: 0 0 0 2px rgba(108, 99, 255, 0.2);
-    }
-
-    /* Make sure the chat stays at bottom when new messages arrive */
-    .chat-scroll-anchor {
-        float: left;
-        clear: both;
-        width: 100%;
-        padding-bottom: 1rem;
-    }
+        
+        /* Custom scrollbar for chat */
+        .chat-messages::-webkit-scrollbar {
+            width: 8px;
+        }
+        
+        .chat-messages::-webkit-scrollbar-track {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 4px;
+        }
+        
+        .chat-messages::-webkit-scrollbar-thumb {
+            background: var(--primary);
+            border-radius: 4px;
+        }
+        
+        .chat-messages::-webkit-scrollbar-thumb:hover {
+            background: var(--primary-dark);
+        }
+        
+        .message {
+            max-width: 85%;
+            animation: fadeIn 0.3s ease;
+            padding: 0.75rem 1.25rem;
+            border-radius: 18px;
+            position: relative;
+            opacity: 0;
+            transform: translateY(10px);
+            animation: messageIn 0.3s forwards;
+        }
+        
+        @keyframes messageIn {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .user-message {
+            align-self: flex-end;
+            background: var(--primary);
+            color: white;
+            border-radius: 18px 18px 4px 18px;
+            margin-left: 15%;
+        }
+        
+        .bot-message {
+            align-self: flex-start;
+            background: rgba(18, 18, 24, 0.8);
+            color: var(--light);
+            border-radius: 18px 18px 18px 4px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            margin-right: 15%;
+        }
+        
+        .message-content {
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+            white-space: pre-wrap;
+        }
+        
+        .message-time {
+            font-size: 0.7rem;
+            opacity: 0.7;
+            margin-top: 0.5rem;
+            text-align: right;
+        }
+        
+        .typing-indicator {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.75rem 1.25rem;
+            background: rgba(18, 18, 24, 0.8);
+            border-radius: 18px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            align-self: flex-start;
+            margin-right: 15%;
+        }
+        
+        .typing-dot {
+            width: 8px;
+            height: 8px;
+            background-color: var(--light-gray);
+            border-radius: 50%;
+            display: inline-block;
+            animation: typingAnimation 1.4s infinite ease-in-out;
+        }
+        
+        .typing-dot:nth-child(1) {
+            animation-delay: 0s;
+        }
+        
+        .typing-dot:nth-child(2) {
+            animation-delay: 0.2s;
+        }
+        
+        .typing-dot:nth-child(3) {
+            animation-delay: 0.4s;
+        }
+        
+        @keyframes typingAnimation {
+            0%, 60%, 100% {
+                transform: translateY(0);
+                opacity: 0.6;
+            }
+            30% {
+                transform: translateY(-5px);
+                opacity: 1;
+            }
+        }
+        
+        .chat-input-container {
+            display: flex;
+            padding: 1rem;
+            border-top: 1px solid var(--dark-gray);
+            background: rgba(18, 18, 24, 0.8);
+            gap: 0.5rem;
+            flex-shrink: 0;
+        }
+        
+        #chatInput {
+            flex: 1;
+            padding: 0.75rem 1rem;
+            background: rgba(10, 10, 14, 0.8);
+            border: 2px solid var(--dark-gray);
+            border-radius: 8px;
+            font-size: 1rem;
+            color: white;
+            resize: none;
+            min-height: 50px;
+            max-height: 150px;
+            overflow-y: auto;
+            transition: all 0.3s ease;
+        }
+        
+        #chatInput:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 2px rgba(108, 99, 255, 0.2);
+        }
+        
+        /* Make sure the chat stays at bottom when new messages arrive */
+        .chat-scroll-anchor {
+            float: left;
+            clear: both;
+            width: 100%;
+            padding-bottom: 1rem;
+        }
+        
         /* Dashboard */
         .dashboard {
             display: none;
@@ -1049,6 +1064,18 @@
             .chat-container {
                 height: 500px;
             }
+            
+            .message {
+                max-width: 90%;
+            }
+            
+            .user-message {
+                margin-left: 10%;
+            }
+            
+            .bot-message {
+                margin-right: 10%;
+            }
         }
         
         @media (max-width: 480px) {
@@ -1082,6 +1109,10 @@
             .analysis-section {
                 padding: 1rem;
             }
+            
+            .analysis-cards {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
@@ -1110,11 +1141,11 @@
             </nav>
             
             <div class="auth-buttons">
-                <button class="btn btn-outline" id="loginBtn">
-                    <i class="mdi mdi-login"></i> Log In
+                <button class="btn btn-outline view hidden" id="loginBtn">
+                    <i class="mdi mdi-login"></i> 
                 </button>
-                <button class="btn btn-primary" id="signupBtn">
-                    <i class="mdi mdi-account-plus"></i> Sign Up
+                <button class="btn btn-primary view hidden" id="signupBtn">
+                    <i class="mdi mdi-account-plus"></i> 
                 </button>
             </div>
         </div>
@@ -1413,12 +1444,33 @@
             </div>
             
             <div id="resultsContainer" class="results-container">
-                <div class="stats">
-                    <span id="queryDisplay"></span>
-                    <span id="sourceCount"></span>
-                </div>
-                
-                <div class="platform-status" id="platformStatus"></div>
+              <div class="stats">
+                  <span id="queryDisplay"></span>
+                  <span id="sourceCount"></span>
+              </div>
+              
+              <div class="platform-status" id="platformStatus"></div>
+              
+              <!-- Add this new section for Google Trends -->
+              <div class="analysis-section" id="googleTrendsSection" style="display: none;">
+                  <h2><i class="mdi mdi-trending-up"></i> Google Trends</h2>
+                  <div class="analysis-content">
+                      <p>Interest over time for "<span id="trendQuery"></span>" based on Google search data:</p>
+                      <div class="trends-chart-container">
+                          <canvas id="trendsChart"></canvas>
+                      </div>
+                      <div class="related-queries">
+                          <div class="query-list">
+                              <h4><i class="mdi mdi-arrow-top-right-thick"></i> Top Related Queries</h4>
+                              <div id="topRelatedQueries"></div>
+                          </div>
+                          <div class="query-list">
+                              <h4><i class="mdi mdi-trending-up"></i> Rising Related Queries</h4>
+                              <div id="risingRelatedQueries"></div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
                 
                 <div class="analysis-section">
                     <h2><i class="mdi mdi-text-box-search"></i> Detailed Explanation</h2>
@@ -1449,12 +1501,13 @@
                     <div id="sentimentChartContainer" style="width: 100%; max-width: 400px; margin: 1rem auto;"></div>
                 </div>
                 
-                <div class="analysis-section">
-                    <h2><i class="mdi mdi-trending-up"></i> Key Trends</h2>
-                    <div class="analysis-content" id="trendAnalysis">
-                        <p>Identifying emerging trends...</p>
+                  <div class="analysis-section">
+                    <h2><i class="mdi mdi-trending-up"></i> Google Trends</h2>
+                    <div class="analysis-content" id="googleTrendsAnalysis">
+                        <p>Loading interest over time...</p>
                     </div>
-                </div>
+                    <div id="trendsChartContainer" style="width: 100%; height: 300px; margin: 1rem auto;"></div>
+                  </div>
                 
                 <div style="display: flex; justify-content: center; gap: 1rem; margin-top: 2rem; flex-wrap: wrap;">
                     <button class="btn btn-primary" id="startChatBtn">
@@ -1470,22 +1523,22 @@
             </div>
             
             <div id="chatContainer" class="chat-container">
-              <div class="chat-header">
-                  <h3><i class="mdi mdi-robot"></i> Analysis Assistant</h3>
-                  <button class="btn btn-outline" id="closeChatBtn">
-                      <i class="mdi mdi-close"></i> Close Chat
-                  </button>
-              </div>
-              <div class="chat-messages" id="chatMessages">
-                  <div class="chat-scroll-anchor"></div>
-              </div>
-              <div class="chat-input-container">
-                  <textarea id="chatInput" placeholder="Ask about this analysis (e.g., 'What were the main concerns on Reddit?', 'Can you explain the sentiment breakdown?')" rows="1"></textarea>
-                  <button class="btn btn-primary" id="sendChatBtn">
-                      <i class="mdi mdi-send"></i>
-                  </button>
-              </div>
-          </div>
+                <div class="chat-header">
+                    <h3><i class="mdi mdi-robot"></i> Analysis Assistant</h3>
+                    <button class="btn btn-outline" id="closeChatBtn">
+                        <i class="mdi mdi-close"></i> Close Chat
+                    </button>
+                </div>
+                <div class="chat-messages" id="chatMessages">
+                    <div class="chat-scroll-anchor"></div>
+                </div>
+                <div class="chat-input-container">
+                    <textarea id="chatInput" placeholder="Ask about this analysis (e.g., 'What were the main concerns on Reddit?', 'Can you explain the sentiment breakdown?')" rows="1"></textarea>
+                    <button class="btn btn-primary" id="sendChatBtn">
+                        <i class="mdi mdi-send"></i>
+                    </button>
+                </div>
+            </div>
         </div>
     </main>
 
@@ -1600,8 +1653,14 @@
         newAnalysisBtn.addEventListener('click', resetAnalysis);
         closeChatBtn.addEventListener('click', closeChat);
         sendChatBtn.addEventListener('click', sendChatMessage);
-        chatInput.addEventListener('keypress', (e) => e.key === 'Enter' && sendChatMessage());
+        chatInput.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter' && !e.shiftKey) {
+                e.preventDefault();
+                sendChatMessage();
+            }
+        });
         queryInput.addEventListener('keypress', (e) => e.key === 'Enter' && analyzeQuery());
+        chatInput.addEventListener('input', autoResizeTextarea);
 
         // Initialize the app
         document.addEventListener('DOMContentLoaded', () => {
@@ -1729,6 +1788,17 @@
             queryInput.focus();
         }
 
+        function autoResizeTextarea() {
+            const textarea = chatInput;
+            textarea.style.height = 'auto';
+            textarea.style.height = (textarea.scrollHeight) + 'px';
+            
+            // Scroll to bottom if growing beyond max height
+            if (textarea.scrollHeight > 150) {
+                textarea.scrollTop = textarea.scrollHeight;
+            }
+        }
+
         async function analyzeQuery() {
             if (!state.user) {
                 showAuthModal();
@@ -1795,24 +1865,145 @@
             for (const [platform, status] of Object.entries(data.platform_status)) {
                 const platformTag = document.createElement('span');
                 platformTag.className = `platform-tag ${status}`;
-                platformTag.innerHTML = `<i class="mdi mdi-${platform.toLowerCase()}"></i> ${platform}: ${status}`;
+                platformTag.innerHTML = `<i class="mdi mdi-${platform.toLowerCase().replace('_', '-')}"></i> ${platform.replace('_', ' ')}: ${status}`;
                 platformStatusDiv.appendChild(platformTag);
             }
             
-            // Display analyses
+            // Display Google Trends data if available
+            if (data.google_trends) {
+                document.getElementById('googleTrendsSection').style.display = 'block';
+                document.getElementById('trendQuery').textContent = data.query;
+                renderTrendsChart(data.google_trends.trends);
+                
+                // Display related queries
+                const topRelatedDiv = document.getElementById('topRelatedQueries');
+                const risingRelatedDiv = document.getElementById('risingRelatedQueries');
+                
+                topRelatedDiv.innerHTML = '';
+                risingRelatedDiv.innerHTML = '';
+                
+                if (data.google_trends.top_related && data.google_trends.top_related.length > 0) {
+                    data.google_trends.top_related.forEach(query => {
+                        const item = document.createElement('div');
+                        item.className = 'query-item';
+                        item.innerHTML = `<span>${query.query}</span><span>${query.value || ''}</span>`;
+                        topRelatedDiv.appendChild(item);
+                    });
+                } else {
+                    topRelatedDiv.innerHTML = '<p>No top related queries found</p>';
+                }
+                
+                if (data.google_trends.rising_related && data.google_trends.rising_related.length > 0) {
+                    data.google_trends.rising_related.forEach(query => {
+                        const item = document.createElement('div');
+                        item.className = 'query-item';
+                        item.innerHTML = `<span>${query.query}</span><span>+${query.value || ''}%</span>`;
+                        risingRelatedDiv.appendChild(item);
+                    });
+                } else {
+                    risingRelatedDiv.innerHTML = '<p>No rising related queries found</p>';
+                }
+            } else {
+                document.getElementById('googleTrendsSection').style.display = 'none';
+            }
+            
+            // Display analyses with formatted headlines and bold text
             document.getElementById('detailedExplanation').innerHTML = 
-                `<p>${data.analysis.detailed_explanation}</p>`;
+                formatAnalysisContent(data.analysis.detailed_explanation);
             document.getElementById('marketAnalysis').innerHTML = 
-                `<p>${data.analysis.market_analysis}</p>`;
+                formatAnalysisContent(data.analysis.market_analysis);
             document.getElementById('publicOpinion').innerHTML = 
-                `<p>${data.analysis.public_opinion}</p>`;
+                formatAnalysisContent(data.analysis.public_opinion);
             document.getElementById('sentimentAnalysis').innerHTML = 
-                `<p>${data.analysis.sentiment_analysis}</p>`;
+                formatAnalysisContent(data.analysis.sentiment_analysis);
+            document.getElementById('trendAnalysis').innerHTML = 
+                formatAnalysisContent(data.analysis.trend_analysis || 'Identifying emerging trends...');
             
             // Render sentiment chart
             renderSentimentChart(data.analysis.sentiment_analysis);
             
             document.getElementById('resultsContainer').style.display = 'block';
+        }
+
+        function renderTrendsChart(trendsData) {
+            if (!trendsData || trendsData.length === 0) return;
+            
+            const ctx = document.getElementById('trendsChart').getContext('2d');
+            const dates = trendsData.map(item => item.date);
+            const values = trendsData.map(item => item.value);
+            
+            new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: dates,
+                    datasets: [{
+                        label: 'Search Interest',
+                        data: values,
+                        borderColor: '#6C63FF',
+                        backgroundColor: 'rgba(108, 99, 255, 0.1)',
+                        borderWidth: 2,
+                        fill: true,
+                        tension: 0.4
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            display: true,
+                            position: 'top',
+                            labels: {
+                                color: '#E2E8F0'
+                            }
+                        },
+                        tooltip: {
+                            mode: 'index',
+                            intersect: false
+                        }
+                    },
+                    scales: {
+                        x: {
+                            grid: {
+                                color: 'rgba(255, 255, 255, 0.05)'
+                            },
+                            ticks: {
+                                color: '#E2E8F0'
+                            }
+                        },
+                        y: {
+                            grid: {
+                                color: 'rgba(255, 255, 255, 0.05)'
+                            },
+                            ticks: {
+                                color: '#E2E8F0'
+                            }
+                        }
+                    }
+                }
+            });
+        }
+
+        function formatAnalysisContent(content) {
+            // Split content into paragraphs
+            const paragraphs = content.split('\n\n');
+            let formattedContent = '';
+            
+            paragraphs.forEach(para => {
+                if (!para.trim()) return;
+                
+                // Check if this is a headline (starts and ends with **)
+                if (para.startsWith('**') && para.endsWith('**')) {
+                    const headline = para.slice(2, -2);
+                    formattedContent += `<div class="analysis-headline">${headline}</div>`;
+                } else {
+                    // Process bold text within double quotes
+                    let processedPara = para.replace(/"([^"]+)"/g, '<b>"$1"</b>');
+                    formattedContent += `<p>${processedPara}</p>`;
+                }
+            });
+            
+            return formattedContent;
         }
 
         function renderSentimentChart(sentimentText) {
@@ -1875,8 +2066,14 @@
 
         function startChat() {
             document.getElementById('resultsContainer').style.display = 'none';
-            document.getElementById('chatContainer').style.display = 'block';
+            document.getElementById('chatContainer').style.display = 'flex';
+            
+            // Clear previous chat if any
+            document.getElementById('chatMessages').innerHTML = '<div class="chat-scroll-anchor"></div>';
+            state.chatHistory = [];
+            
             addChatMessage('assistant', `I'm your analysis assistant. I can help you interpret these results about "${state.currentAnalysis.query}". What would you like to know?`);
+            scrollToBottom();
         }
 
         function closeChat() {
@@ -1903,7 +2100,7 @@
             notification.className = 'message bot-message';
             notification.innerHTML = `<i class="mdi mdi-check-circle" style="color: var(--success);"></i> Analysis for "${state.currentAnalysis.query}" has been saved to your account.`;
             chatMessages.appendChild(notification);
-            chatMessages.scrollTop = chatMessages.scrollHeight;
+            scrollToBottom();
         }
 
         async function sendChatMessage() {
@@ -1912,12 +2109,9 @@
             
             addChatMessage('user', message);
             chatInput.value = '';
+            chatInput.style.height = 'auto';
             
-            const typingIndicator = document.createElement('div');
-            typingIndicator.className = 'message bot-message';
-            typingIndicator.innerHTML = '<i><i class="mdi mdi-dots-horizontal" style="animation: pulse 1s infinite;"></i> Assistant is typing...</i>';
-            chatMessages.appendChild(typingIndicator);
-            chatMessages.scrollTop = chatMessages.scrollHeight;
+            showTypingIndicator();
             
             try {
                 const response = await fetch('http://localhost:5000/api/chat', {
@@ -1936,11 +2130,11 @@
                 if (!response.ok) throw new Error('Failed to get chat response');
                 
                 const data = await response.json();
-                chatMessages.removeChild(typingIndicator);
+                hideTypingIndicator();
                 addChatMessage('assistant', data.response);
                 
             } catch (err) {
-                chatMessages.removeChild(typingIndicator);
+                hideTypingIndicator();
                 addChatMessage('assistant', "Sorry, I encountered an error. Please try again.");
             }
         }
@@ -1952,16 +2146,40 @@
             const time = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
             
             messageDiv.innerHTML = `
-                <div style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.25rem;">
-                    <strong>${role === 'assistant' ? '<i class="mdi mdi-robot"></i> Assistant' : '<i class="mdi mdi-account"></i> You'}</strong>
-                </div>
-                <div>${content}</div>
+                <div class="message-content">${content}</div>
                 <div class="message-time">${time}</div>
             `;
             
-            chatMessages.appendChild(messageDiv);
-            chatMessages.scrollTop = chatMessages.scrollHeight;
+            const chatMessages = document.getElementById('chatMessages');
+            chatMessages.insertBefore(messageDiv, document.querySelector('.chat-scroll-anchor'));
+            scrollToBottom();
             state.chatHistory.push({ role, content });
+        }
+
+        function showTypingIndicator() {
+            const chatMessages = document.getElementById('chatMessages');
+            const typingDiv = document.createElement('div');
+            typingDiv.className = 'typing-indicator';
+            typingDiv.id = 'typingIndicator';
+            typingDiv.innerHTML = `
+                <div class="typing-dot"></div>
+                <div class="typing-dot"></div>
+                <div class="typing-dot"></div>
+            `;
+            chatMessages.insertBefore(typingDiv, document.querySelector('.chat-scroll-anchor'));
+            scrollToBottom();
+        }
+
+        function hideTypingIndicator() {
+            const typingIndicator = document.getElementById('typingIndicator');
+            if (typingIndicator) {
+                typingIndicator.remove();
+            }
+        }
+
+        function scrollToBottom() {
+            const chatMessages = document.getElementById('chatMessages');
+            chatMessages.scrollTop = chatMessages.scrollHeight;
         }
 
         function updateRecentAnalysesList() {
@@ -2001,11 +2219,6 @@
                 updateRecentAnalysesList();
             }
         }
-
-        // Add animation for typing indicator
-        const style = document.createElement('style');
-        style.textContent = `@keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.5; } }`;
-        document.head.appendChild(style);
 
         // Make functions available globally for inline event handlers
         window.viewAnalysis = viewAnalysis;
